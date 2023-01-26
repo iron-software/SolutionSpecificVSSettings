@@ -45,7 +45,6 @@ stages:
       
       - task: CopyFiles@2
         displayName: "COPY MARKETPLACE FILES"
-        condition: and(succeeded(), eq('${{ parameters.githubRelease }}', true))
         inputs:
           SourceFolder: '$(Build.SourcesDirectory)'
           Contents: |
