@@ -18,6 +18,7 @@ stages:
         lfs: true
 
       - task: NuGetToolInstaller@1
+        displayName: "INSTALL LATEST NUGET"
         inputs:
           checkLatest: true
 
@@ -35,9 +36,7 @@ stages:
           projects: 'SolutionSpecificVSSettings.sln'
           arguments: >-
             --configuration $(Configuration)
-            -f "net60"
-            --no-restore
-            --verbosity normal
+            --verbosity detailed
       
       - task: CopyFiles@2
         displayName: "COPY .vsix TO VsixArtifact"
