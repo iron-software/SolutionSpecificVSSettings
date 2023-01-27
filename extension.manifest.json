@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [ "coding" ],
+  "identity": {
+    "internalName": "SolutionSpecificVSSettings"
+  },
+  "assetFiles": [
+    {
+      "pathOnDisk": "CHANGELOG.md",
+      "targetPath": "CHANGELOG.md"
+    },
+    {
+      "pathOnDisk": "LICENSE",
+      "targetPath": "LICENSE"
+    }
+  ],
+  "overview": "README.md",
+  "priceCategory": "free",
+  "publisher": "ironsoftware",
+  "private": false,
+  "qna": true,
+  "repo": "https://github.com/iron-software/SolutionSpecificVSSettings"
+}

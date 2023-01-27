@@ -35,7 +35,6 @@ stages:
         inputs:
           vsVersion: '17.0'
           clean: true
-          restoreNugetPackages: true
           logFileVerbosity: detailed
           solution: '$(Solution)'
           platform: '$(BuildPlatform)'
@@ -49,7 +48,6 @@ stages:
           TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
           OverWrite: true
 
-      
       - task: CopyFiles@2
         displayName: "COPY MARKETPLACE FILES"
         inputs:
@@ -58,6 +56,7 @@ stages:
             CHANGELOG.md
             LICENSE
             README.md
+            extension.manifest.json
           TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
           OverWrite: true
       
