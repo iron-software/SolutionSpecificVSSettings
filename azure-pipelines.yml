@@ -3,7 +3,8 @@ variables:
     value: 'Release'
 
 pool:
-  vmImage: 'windows-latest'
+  name: SelfHosted
+  demands: PlatformArchitecture -equals Win
 
 stages:
 - stage: RestoreAndBuildSolution
