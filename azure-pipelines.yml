@@ -23,6 +23,13 @@ stages:
         inputs:
           checkLatest: true
 
+      - task: NuGetCommand@2
+        displayName: "RESTORE SOLUTION"
+        inputs:
+          command: 'restore'
+          restoreSolution: '**/*.sln'
+          feedsToUse: 'select'
+      
       - task: VSBuild@1
         displayName: "BUILD SOLUTION"
         inputs:
