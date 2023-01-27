@@ -18,6 +18,7 @@ stages:
         lfs: true
 
       - task: NuGetToolInstaller@1
+        displayName: "INSTALL LATEST NUGET TOOL"
         inputs:
           checkLatest: true
 
@@ -81,5 +82,3 @@ stages:
           buildType: 'current'
           artifactName: 'VsixArtifact'
           targetPath: '$(Build.SourcesDirectory)\VsixArtifact'
-
-          
