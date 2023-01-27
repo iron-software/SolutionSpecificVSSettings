@@ -1,0 +1,80 @@
+variables:
+  - name: Configuration
+    value: 'Release'
+
+pool:
+  vmImage: 'windows-latest'
+
+stages:
+- stage: RestoreAndBuildSolution
+  displayName: "RESTORE & BUILD SOLUTION"
+  dependsOn: []
+  jobs:
+    - job: BuildProject
+      displayName: "BUILD PROJECT"
+      steps:
+      - checkout: self
+        displayName: "CHECKOUT REPOSITORY"
+        lfs: true
+
+      - task: NuGetCommand@2
+        displayName: "RESTORE SOLUTION"
+        inputs:
+          command: 'restore'
+          restoreSolution: '**/*.sln'
+          feedsToUse: 'select'
+      
+      - task: DotNetCoreCLI@2
+        displayName: "BUILD SOLUTION"
+        inputs:
+          command: 'build'
+          projects: 'SolutionSpecificVSSettings.sln'
+          arguments: >-
+            --configuration $(Configuration)
+            --no-restore
+            --verbosity normal
+      
+      - task: CopyFiles@2
+        displayName: "COPY .vsix TO VsixArtifact"
+        inputs:
+          SourceFolder: 'SolutionSpecificVSSettings/bin/$(Configuration)'
+          Contents: 'SolutionSpecificVSSettings.vsix'
+          TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
+          OverWrite: true
+
+      
+      - task: CopyFiles@2
+        displayName: "COPY MARKETPLACE FILES"
+        inputs:
+          SourceFolder: '$(Build.SourcesDirectory)'
+          Contents: |
+            CHANGELOG.md
+            LICENSE
+            README.md
+          TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
+          OverWrite: true
+
+      - task: PublishPipelineArtifact@1
+        displayName: "PUBLISH VsixArtifact"
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
+          artifact: 'VsixArtifact'
+          publishLocation: 'pipeline'
+          
+- stage: PackAndPublishVsix
+  displayName: "DEPLOY VSIX PACKAGE"
+  dependsOn: [RestoreAndBuildSolution]
+  jobs:
+    - job: PackAndPublishVsix
+      displayName: "PACK AND PUBLISH"
+      steps:
+      - checkout: none
+
+      - task: DownloadPipelineArtifact@2
+        displayName: "DOWNLOAD VsixArtifact"
+        inputs:
+          buildType: 'current'
+          artifactName: 'VsixArtifact'
+          targetPath: '$(Build.SourcesDirectory)\VsixArtifact'
+
+          
