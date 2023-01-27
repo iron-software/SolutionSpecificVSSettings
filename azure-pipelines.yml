@@ -1,6 +1,7 @@
 variables:
-  - name: Configuration
-    value: 'Release'
+  Configuration: 'Release'
+  Solution: '**/*.sln'
+  BuildPlatform: 'Any CPU'
 
 pool:
   vmImage: 'windows-latest'
@@ -22,22 +23,17 @@ stages:
         inputs:
           checkLatest: true
 
-      - task: NuGetCommand@2
-        displayName: "RESTORE SOLUTION"
-        inputs:
-          command: 'restore'
-          restoreSolution: '**/*.sln'
-          feedsToUse: 'select'
-      
-      - task: DotNetCoreCLI@2
+      - task: VSBuild@1
         displayName: "BUILD SOLUTION"
         inputs:
-          command: 'build'
-          projects: 'SolutionSpecificVSSettings.sln'
-          arguments: >-
-            --configuration $(Configuration)
-            --verbosity detailed
-      
+          vsVersion: '17.0'
+          clean: true
+          restoreNugetPackages: true
+          logFileVerbosity: detailed
+          solution: '$(Solution)'
+          platform: '$(BuildPlatform)'
+          configuration: '$(Configuration)'
+
       - task: CopyFiles@2
         displayName: "COPY .vsix TO VsixArtifact"
         inputs:
@@ -57,7 +53,7 @@ stages:
             README.md
           TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
           OverWrite: true
-
+      
       - task: PublishPipelineArtifact@1
         displayName: "PUBLISH VsixArtifact"
         inputs:
