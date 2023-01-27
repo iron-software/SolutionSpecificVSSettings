@@ -17,6 +17,10 @@ stages:
         displayName: "CHECKOUT REPOSITORY"
         lfs: true
 
+      - task: NuGetToolInstaller@1
+        inputs:
+          checkLatest: true
+
       - task: NuGetCommand@2
         displayName: "RESTORE SOLUTION"
         inputs:
