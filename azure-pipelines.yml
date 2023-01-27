@@ -59,28 +59,9 @@ stages:
             extension.manifest.json
           TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
           OverWrite: true
-      
-      - task: PublishPipelineArtifact@1
-        displayName: "PUBLISH VsixArtifact"
-        inputs:
-          targetPath: '$(Build.ArtifactStagingDirectory)/VsixArtifact'
-          artifact: 'VsixArtifact'
-          publishLocation: 'pipeline'
-          
-- stage: PackAndPublishVsix
-  displayName: "DEPLOY VSIX PACKAGE"
-  dependsOn: [RestoreAndBuildSolution]
-  jobs:
-    - job: PackAndPublishVsix
-      displayName: "PACK AND PUBLISH"
-      steps:
-      - checkout: none
 
-      - task: DownloadPipelineArtifact@2
-        displayName: "DOWNLOAD VsixArtifact"
+      - task: PublishBuildArtifacts@1
         inputs:
-          buildType: 'current'
-          artifactName: 'VsixArtifact'
-          targetPath: '$(Build.SourcesDirectory)\VsixArtifact'
-
-          
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'VsixArtifact'
+          publishLocation: 'Container'
