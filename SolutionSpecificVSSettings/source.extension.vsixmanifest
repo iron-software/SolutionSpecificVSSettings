@@ -5,7 +5,7 @@
 		<DisplayName>Solution Specific VSSettings</DisplayName>
 		<Description xml:space="preserve">Imports a custom .vssettings on solution load.</Description>
 		<MoreInfo>https://github.com/iron-software/SolutionSpecificVSSettings</MoreInfo>
-		<License>https://raw.githubusercontent.com/iron-software/SolutionSpecificVSSettings/master/LICENSE</License>
+		<License>Resources\LICENSE</License>
 		<ReleaseNotes>https://raw.githubusercontent.com/iron-software/SolutionSpecificVSSettings/master/CHANGELOG.md</ReleaseNotes>
 		<Icon>Resources\iron-logo-128.png</Icon>
 		<PreviewImage>Resources\iron-logo-128.png</PreviewImage>
