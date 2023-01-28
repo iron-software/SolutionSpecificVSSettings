@@ -4,12 +4,6 @@
   "identity": {
     "internalName": "SolutionSpecificVSSettings"
   },
-  "assetFiles": [
-    {
-      "pathOnDisk": "CHANGELOG.md",
-      "targetPath": "CHANGELOG.md"
-    }
-  ],
   "overview": "README.md",
   "priceCategory": "free",
   "publisher": "artemkoloskov",

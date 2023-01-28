@@ -2,7 +2,7 @@
 
 Imports a custom `.vssettings` on solution load.
 
-See the [change log](CHANGELOG.md) for changes and road map.
+See the [change log](https://raw.githubusercontent.com/iron-software/SolutionSpecificVSSettings/master/CHANGELOG.md) for changes and road map.
 
 ## Features
 * When Visual Studio opens a solution this extension will try to find a 
@@ -27,4 +27,4 @@ To find out how to create your custom `.vssettings` file, please, refer to
 [this](https://learn.microsoft.com/en-us/visualstudio/ide/reference/import-and-export-settings-command?view=vs-2022).
 
 ## License
-[Apache 2.0](LICENSE)
+[Apache 2.0](https://raw.githubusercontent.com/iron-software/SolutionSpecificVSSettings/master/LICENSE)
