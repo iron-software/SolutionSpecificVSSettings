@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="df2bbc04-f83d-4b8a-95f9-2612666a2757" Version="1.0.0" Language="en-US" Publisher="Iron-Software" />
+        <Identity Id="df2bbc04-f83d-4b8a-95f9-2612666a2757" Version="1.0.0" Language="en-US" Publisher="artemkoloskov" />
         <DisplayName>Solution Specific VSSettings</DisplayName>
         <Description xml:space="preserve">Imports a custom .vssettings on solution load.</Description>
         <MoreInfo>https://github.com/iron-software/SolutionSpecificVSSettings</MoreInfo>
