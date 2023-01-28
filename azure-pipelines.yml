@@ -54,7 +54,6 @@ stages:
           SourceFolder: '$(Build.SourcesDirectory)'
           Contents: |
             CHANGELOG.md
-            LICENSE
             README.md
             extension.manifest.json
           TargetFolder: '$(Build.ArtifactStagingDirectory)/VsixArtifact'

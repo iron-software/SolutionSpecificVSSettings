@@ -8,10 +8,6 @@
     {
       "pathOnDisk": "CHANGELOG.md",
       "targetPath": "CHANGELOG.md"
-    },
-    {
-      "pathOnDisk": "LICENSE",
-      "targetPath": "LICENSE"
     }
   ],
   "overview": "README.md",
