@@ -12,7 +12,7 @@ namespace SolutionSpecificVSSettings
         public const string Description = @"Imports a custom .vssettings on solution load.";
         public const string Language = "en-US";
         public const string Version = "1.0.0";
-        public const string Author = "artemkoloskov";
+        public const string Author = "Artem Koloskov";
         public const string Tags = "settings, solution, vssettings";
     }
 }

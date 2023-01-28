@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany(Vsix.Author)]
 [assembly: AssemblyProduct(Vsix.Name)]
-[assembly: AssemblyCopyright(Vsix.Author)]
+[assembly: AssemblyCopyright("© Iron Software 2023")]
 [assembly: AssemblyTrademark("© Iron Software 2023")]
 [assembly: AssemblyCulture("")]
 
