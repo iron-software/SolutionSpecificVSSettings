@@ -1,7 +1,8 @@
-﻿using EnvDTE80;
+﻿using Community.VisualStudio.Toolkit;
+using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Events;
 using System.IO;
+using SolutionEvents = Microsoft.VisualStudio.Shell.Events.SolutionEvents;
 
 namespace SolutionSpecificVSSettings
 {
@@ -46,16 +47,37 @@ namespace SolutionSpecificVSSettings
             }
 
             string vsSettingsFileName =
-                _dte.Solution.FileName.Replace(SLN, VS_SETTINGS);
+                _dte?.Solution?.FileName?.Replace(SLN, VS_SETTINGS);
 
             if (TryApplyVSSettings(vsSettingsFileName))
             {
                 _settingsWereApplied = true;
 
+                VS.StatusBar
+                    .ShowMessageAsync($"{Vsix.Name}: Imported " +
+                    $"{Path.GetFileName(vsSettingsFileName)}")
+                    .FireAndForget();
+
                 return;
             }
 
+            if (_options.ResotoreDefaultVSSettingsIfSolutionSpecificNotFound)
+            {
+                VS.StatusBar
+                    .ShowMessageAsync($"{Vsix.Name}: Couldn't find or import " +
+                    $"solution-specific .vssettings, applying default " +
+                    $".vssettings")
+                    .FireAndForget();
+
             _ = TryApplyVSSettings(_options.DefaultVSSettingsPath);
+
+                return;
+            }
+
+            VS.StatusBar
+                .ShowMessageAsync($"{Vsix.Name}: Couldn't find or import " +
+                $"solution-specific .vssettings")
+                .FireAndForget();
         }
 
         private void ApplyDefaultSettings()
@@ -65,7 +87,13 @@ namespace SolutionSpecificVSSettings
                 return;
             }
 
-            _ = TryApplyVSSettings(_options.DefaultVSSettingsPath);
+            if (TryApplyVSSettings(_options.DefaultVSSettingsPath))
+            {
+                VS.StatusBar
+                    .ShowMessageAsync($"{Vsix.Name}: Imported " +
+                    $"{Path.GetFileName(_options.DefaultVSSettingsPath)}")
+                    .FireAndForget();
+            }
 
             _settingsWereApplied = false;
         }
