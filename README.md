@@ -1,4 +1,4 @@
-# Solution Specific VSSettings
+# Solution-specific VSSettings
 
 Imports a custom `.vssettings` on solution load.
 
@@ -13,14 +13,16 @@ directory. For example if the solution being loaded is located in the file
 
 * The extension can also restore your settings from a file specified in its 
 options under 
-`Tools->Options->Environment->Solution Specific VSSettings->Default .vssettings file path` 
+`Tools->Options->Environment->Solution-specific VSSettings->Default .vssettings file path` 
 on solution close. **Note:** This will happen only if there was found and applied a solution 
 specific `.vssettings` file on solution load.
 
 * The extension will apply the file from a `Default .vssettings file path` option 
 on solution open if `Look for and apply .vssettings file on solution load` 
 option is set to `true`, but no custom `.vssettings` file were found and applied. 
-If `Default .vssettings file path` option is not set - no changes will occur.
+If `Default .vssettings file path` option is not set - no changes will occur. 
+this can be controlled by the `Apply default .vssettings if solution has no 
+specific .vssettings` option
 
 ### Help
 To find out how to create your custom `.vssettings` file, please, refer to 
