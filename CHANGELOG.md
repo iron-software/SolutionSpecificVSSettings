@@ -10,9 +10,14 @@ Features that have a checkmark are complete and available.
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
-## 1.0
+## 1.0.1
 
-- [x] Look for solution specific .vssettings and apply them on solution open
+- [x] Option to not load default .vssettings if no solution-specific file was 
+found
+
+## 1.0.0
+
+- [x] Look for solution-specific .vssettings and apply them on solution open
 - [x] Apply default .vssettings if no specific .vssettings was found on 
 solution open
 - [x] Apply default .vssettings on solution close if there was custom 
