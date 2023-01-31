@@ -35,6 +35,15 @@ namespace SolutionSpecificVSSettings
 
             SolutionEvents.OnAfterOpenSolution += (s, e) => ApplySolutionSpecificSettings();
             SolutionEvents.OnAfterCloseSolution += (s, e) => ApplyDefaultSettings();
+
+            CheckIfSolutionWasAlreadyLoaded();
+        }
+
+        private void CheckIfSolutionWasAlreadyLoaded()
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
+            ApplySolutionSpecificSettings();
         }
 
         private void ApplySolutionSpecificSettings()
@@ -69,7 +78,7 @@ namespace SolutionSpecificVSSettings
                     $".vssettings")
                     .FireAndForget();
 
-            _ = TryApplyVSSettings(_options.DefaultVSSettingsPath);
+                _ = TryApplyVSSettings(_options.DefaultVSSettingsPath);
 
                 return;
             }
