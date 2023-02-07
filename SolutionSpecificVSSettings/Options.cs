@@ -24,7 +24,7 @@ namespace SolutionSpecificVSSettings
 
         [Category(VS_SETTINGS_CATEGORY)]
         [DisplayName(defaultVSSettingsPathDisplayName)]
-        [Description("Path to the default .vssettings file")]
+        [Description("Path to the default .vssettings file.")]
         public string DefaultVSSettingsPath { get; set; }
         private const string defaultVSSettingsPathDisplayName =
             "Default .vssettings file path";
@@ -33,8 +33,7 @@ namespace SolutionSpecificVSSettings
         [DisplayName(resotoreDefaultVSSettingsOnCloseDisplayName)]
         [Description("If set to true, " + Vsix.Name + " will apply the file " +
             "from a \"" + defaultVSSettingsPathDisplayName + "\" option on " +
-            "solution close. Important to note that this will .vssettings " +
-            "file on solution load.")]
+            "solution close.")]
         [DefaultValue(true)]
         public bool ResotoreDefaultVSSettingsOnClose { get; set; }
         private const string resotoreDefaultVSSettingsOnCloseDisplayName =
