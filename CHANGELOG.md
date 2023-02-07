@@ -2,6 +2,9 @@
 
 - [ ] Before applying custom vssettings export current settings and apply them 
 when solution is closed.
+- [ ] Toolbar buttons and/or hotkeys to switch bitween solution-specific and 
+default settings on the fly
+- [ ] VS 2019 support
 
 Features that have a checkmark are complete and available.
 
