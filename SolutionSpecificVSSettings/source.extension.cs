@@ -7,12 +7,12 @@ namespace SolutionSpecificVSSettings
 {
     internal sealed partial class Vsix
     {
-        public const string Id = "7A7A54CF-455F-447C-9CF6-6E75075BCBD9";
+        public const string Id = "E60725D2-A6AB-4308-85DE-624DE5B04315";
         public const string Name = "Solution-specific VSSettings";
         public const string Description = @"Imports a custom .vssettings on solution load.";
         public const string Language = "en-US";
-        public const string Version = "1.0.1";
-        public const string Author = "Artem Koloskov";
+        public const string Version = "1.0.2";
+        public const string Author = "Iron-Software";
         public const string Tags = "settings, solution, vssettings";
     }
 }
