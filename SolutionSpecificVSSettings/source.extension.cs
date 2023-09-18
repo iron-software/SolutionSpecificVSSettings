@@ -11,7 +11,7 @@ namespace SolutionSpecificVSSettings
         public const string Name = "Solution-specific VSSettings";
         public const string Description = @"Imports a custom .vssettings on solution load.";
         public const string Language = "en-US";
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
         public const string Author = "Iron-Software";
         public const string Tags = "settings, solution, vssettings";
     }
